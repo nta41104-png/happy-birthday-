@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ffd6e7,#ffc2dd,#ffe9f3);
+    font-family:'Poppins',sans-serif;
+}
+
+.card{
+    text-align:center;
+    padding:25px;
+}
+
+h1{
+    color:#ff4f93;
+    font-size:2.7rem;
+    text-shadow:0 0 15px rgba(255,105,180,.5);
+}
+
+.subtitle{
+    color:#ff6fa8;
+    margin-top:10px;
+    font-size:1rem;
+}
+
+.gift{
+    font-size:120px;
+    margin:20px 0;
+    animation:bounce 1.5s infinite;
+}
+
+button{
+    border:none;
+    background:#ff5fa2;
+    color:white;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(255,105,180,.4);
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+#surprise{
+    display:none;
+    margin-top:20px;
+    color:#ff3d87;
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    font-size:24px;
+    animation:fly 4s linear forwards;
+}
+
+@keyframes fly{
+    from{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-600px) scale(2);
+        opacity:0;
+    }
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🎂 Happy Birthday 🎂</h1>
+    <p class="subtitle">Ada hadiah spesial buat kamu nih 💖</p>
+
+    <div class="gift">🎁</div>
+
+    <button onclick="openGift()">🎀 Buka Hadiah 🎀</button>
+
+    <div id="surprise">
+        💖 Selamat Ulang Tahun! 💖<br><br>
+        Semoga makin cantik, makin bahagia, makin banyak rezeki, dan semua impian kamu satu per satu terwujud ✨🎂🩷
+    </div>
+</div>
+
+<script>
+
+function openGift(){
+
+document.querySelector(".gift").innerHTML="💝";
+document.getElementById("surprise").style.display="block";
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML=["💖","🩷","💕","💗","✨"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.top="100vh";
+
+heart.style.animationDuration=(2+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+}
+
+}
+</script>
+
+</body>
+</html>
